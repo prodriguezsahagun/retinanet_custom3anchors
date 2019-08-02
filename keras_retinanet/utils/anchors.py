@@ -45,7 +45,7 @@ The default anchor parameters.
 AnchorParameters.default = AnchorParameters(
     sizes   = [32, 64, 128, 256, 512],
     strides = [8, 16, 32, 64, 128],
-    ratios  = np.array([0.64, 0.77, 2.92], keras.backend.floatx()),
+    ratios  = np.array([0.17, 0.3, 0.32, 0.36, 0.38, 0.43, 0.46, 0.46, 0.51, 0.53, 0.57, 0.6, 0.62, 0.63, 0.74, 0.82, 0.83, 0.86, 0.94, 0.94, 0.96, 1.03, 1.05, 1.05, 1.17, 1.2, 1.22, 1.31, 1.38, 1.49, 1.6, 1.86, 1.87, 2.02, 2.02, 2.1, 2.32, 3.02, 3.39, 3.85, 4.28, 5.11, 6.34, 9.88, 13.25], keras.backend.floatx()),
     scales  = np.array([2 ** 0, 2 ** (1.0 / 3.0), 2 ** (2.0 / 3.0)], keras.backend.floatx()),
 )
 
@@ -231,7 +231,7 @@ def anchors_for_shape(
     for idx, p in enumerate(pyramid_levels):
         anchors = generate_anchors(
             base_size=anchor_params.sizes[idx],
-            ratios= np.array([0.64, 0.77, 2.92], keras.backend.floatx()),
+            ratios= np.array([0.17, 0.3, 0.32, 0.36, 0.38, 0.43, 0.46, 0.46, 0.51, 0.53, 0.57, 0.6, 0.62, 0.63, 0.74, 0.82, 0.83, 0.86, 0.94, 0.94, 0.96, 1.03, 1.05, 1.05, 1.17, 1.2, 1.22, 1.31, 1.38, 1.49, 1.6, 1.86, 1.87, 2.02, 2.02, 2.1, 2.32, 3.02, 3.39, 3.85, 4.28, 5.11, 6.34, 9.88, 13.25], keras.backend.floatx()),
             scales=anchor_params.scales
         )
         shifted_anchors = shift(image_shapes[idx], anchor_params.strides[idx], anchors)
@@ -279,7 +279,7 @@ def generate_anchors(base_size=16, ratios=None, scales=None):
     """
 
     if ratios is None:
-        ratios = np.array([0.64, 0.77, 2.92], keras.backend.floatx())
+        ratios = np.array([0.17, 0.3, 0.32, 0.36, 0.38, 0.43, 0.46, 0.46, 0.51, 0.53, 0.57, 0.6, 0.62, 0.63, 0.74, 0.82, 0.83, 0.86, 0.94, 0.94, 0.96, 1.03, 1.05, 1.05, 1.17, 1.2, 1.22, 1.31, 1.38, 1.49, 1.6, 1.86, 1.87, 2.02, 2.02, 2.1, 2.32, 3.02, 3.39, 3.85, 4.28, 5.11, 6.34, 9.88, 13.25], keras.backend.floatx())
 
     if scales is None:
         scales = AnchorParameters.default.scales
